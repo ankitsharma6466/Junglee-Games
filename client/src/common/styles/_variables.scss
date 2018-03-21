@@ -16,7 +16,7 @@ $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 
 //grid and spacing
-$num-cols: 12 !default;
+$num-cols: 15 !default;
 $gutter-width: 1.5rem !default;
 $negative-offset: -7rem !default;
 
@@ -26,6 +26,7 @@ $secondary: #feb306;
 $background-primary: #ffffff;
 $background-secondary: #f7f7f7;
 $text-primary: #424242;
+$text-highlight: #6c1203;
 $text-secondary: rgba(66, 66, 66, 0.6);
 $text-primary-dark-bg: #ffffff;
 $text-secondary-dark-bg: rgba(255, 255, 255, 0.6);

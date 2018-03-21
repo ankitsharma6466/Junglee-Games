@@ -15,3 +15,57 @@ body {
   padding: 0;
   font-weight: $font-weight-base;
 }
+
+.block {
+  margin: $gutter-width*3 $gutter-width;
+}
+
+.title-main {
+  font-size: 3rem;
+  color: $text-highlight;
+  margin-bottom: $gutter-width;
+}
+
+.card {
+  background: $background-secondary;
+  border: 1px solid #d3d3d3;
+  padding: $gutter-width;
+  border-radius: 10px;
+
+  .stepper {
+    margin-bottom: $gutter-width;
+    color: $text-highlight;
+
+    .step {
+      margin-right: $gutter-width*1.5;
+      display: inline-block;
+
+      .text {
+        font-weight: $font-weight-bold;
+
+        span {
+          margin-left: $gutter-width/2;
+        }
+      }
+    }
+  }
+
+  .content {
+    background: $background-primary;
+    padding: $gutter-width;
+    border-radius: 10px;
+    border: 1px solid #d3d3d3;
+
+    .actions {
+      margin-top: $gutter-width;
+    }
+  }
+}
+
+.input {
+  padding: $gutter-width/2 $gutter-width/3;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  color: $text-primary;
+}

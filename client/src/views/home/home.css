@@ -1,3 +1,38 @@
-
+.package {
+  background: #6c1203;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s all linear;
+  min-height: 160px; }
+  .package .title {
+    color: #ffffff;
+    text-align: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #ccc;
+    margin: 0 1.5rem; }
+  .package .bonus {
+    background: #feb306;
+    text-align: center;
+    margin: 0 3rem;
+    color: #6c1203;
+    padding: 0.75rem 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; }
+    .package .bonus.hidden {
+      visibility: hidden; }
+    .package .bonus .text {
+      font-size: 1.2rem; }
+    .package .bonus .value {
+      font-size: 1.8rem; }
+  .package .main {
+    padding: 1.5rem;
+    text-align: center; }
+    .package .main .input {
+      margin-bottom: 1.5rem; }
+    .package .main .value {
+      font-size: 2.4rem;
+      color: #ffffff; }
+    .package .main .select {
+      margin-top: 0.5rem; }
 
 /*# sourceMappingURL=home.css.map */

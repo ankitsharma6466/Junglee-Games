@@ -1,1 +1,57 @@
 @import "../../common/styles/variables";
+
+.package {
+  background: $primary;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s all linear;
+  min-height: 160px;
+
+  .title {
+    color: $text-primary-dark-bg;
+    text-align: center;
+    padding: $gutter-width/2 0;
+    border-bottom: 1px solid #ccc;
+    margin: 0 $gutter-width;
+  }
+
+  .bonus {
+    background: $secondary;
+    text-align: center;
+    margin: 0 $gutter-width*2;
+    color: $text-highlight;
+    padding: $gutter-width/2 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    &.hidden {
+      visibility: hidden;
+    }
+
+    .text {
+      font-size: 1.2rem;
+    }
+
+    .value {
+      font-size: 1.8rem;
+    }
+  }
+
+  .main {
+    padding: $gutter-width;
+    text-align: center;
+
+    .input {
+      margin-bottom: $gutter-width;
+    }
+
+    .value {
+      font-size: 2.4rem;
+      color: $text-primary-dark-bg;
+    }
+
+    .select {
+      margin-top: $gutter-width/3;
+    }
+  }
+}

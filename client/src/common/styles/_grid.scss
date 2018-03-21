@@ -2,12 +2,14 @@
 .container {
   position: relative;
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
+  max-width: 1024px;
+  min-width: 900px;
 }
 
 @media #{$x-small-and-down} {
   .container {
-    width: 95%;
+    width: 90%;
   }
 }
 
