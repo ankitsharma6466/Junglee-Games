@@ -4,7 +4,12 @@ import Home from './home'
 
 function mapStateToProps(state) {
   return {
-    test: state.home.test
+    packages: state.home.packages,
+    loader: state.home.loader,
+    errorMessage: state.home.errorMessage,
+    promoCode: state.home.promoCode,
+    customPrice: state.home.customPrice,
+    selectedPackage: state.home.selectedPackage,
   }
 }
 

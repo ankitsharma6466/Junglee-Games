@@ -1,11 +1,28 @@
-import {TEST} from "./actions";
-
 export default (state = {
-  test: ""
+  packages: [],
+  loader: false,
+  errorMessage: "",
+  promoCode: "",
+  selectedPackage: -1
 }, action) => {
   switch (action.type) {
-    case TEST: {
-      return {...state, test: action.payload}
+    case "GET_PACKAGES_PENDING": {
+      return {...state, loader: true}
+    }
+    case "GET_PACKAGES_SUCCESS": {
+      return {...state, packages: action.payload.packages, loader: false}
+    }
+    case "GET_PACKAGES_FAILED": {
+      return {...state, errorMessage: action.payload, loader: false}
+    }
+    case "SET_PROMO_CODE": {
+      return {...state, promoCode: action.payload}
+    }
+    case "SET_CUSTOM_PRICE": {
+      return {...state, customPrice: action.payload}
+    }
+    case "SELECT_PACKAGE": {
+      return {...state, selectedPackage: action.payload}
     }
     default: {
       return state;

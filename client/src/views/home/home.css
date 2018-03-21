@@ -3,7 +3,8 @@
   border-radius: 10px;
   cursor: pointer;
   transition: .3s all linear;
-  min-height: 160px; }
+  min-height: 160px;
+  margin-bottom: 1.5rem; }
   .package .title {
     color: #ffffff;
     text-align: center;

@@ -6,6 +6,7 @@
   cursor: pointer;
   transition: .3s all linear;
   min-height: 160px;
+  margin-bottom: $gutter-width;
 
   .title {
     color: $text-primary-dark-bg;

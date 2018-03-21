@@ -1,6 +1,6 @@
 {
     "env": "dev",
     "is_secure": false,
-    "port": 3000,
+    "port": 8080,
     "session_key":"test"
 }
