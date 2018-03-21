@@ -21,9 +21,9 @@ export default class Home extends Component {
   }
   
   onContinueClick() {
-    if(this.props.selectedPackage <= 0) {
+    if(this.props.selectedPackage) {
       alert("Please select a package");
-    } else if(this.props.selectedPackage === 99 && (!this.props.customPrice || this.props.customPrice <= 0)){
+    } else if(this.props.selectedPackage.type === "USER_DEFINED" && (!this.props.customPrice || this.props.customPrice <= 0)){
       alert("Amount Required");
     } else {
       
@@ -34,7 +34,7 @@ export default class Home extends Component {
   
   onPackageSelected(item) {
     console.log(item);
-    this.props.dispatch(selectPackage(item.id));
+    this.props.dispatch(selectPackage(item));
   }
   
   onPromoCodeChange(e) {
@@ -47,7 +47,7 @@ export default class Home extends Component {
   
   renderPackages() {
     
-    let selectedPackage = this.props.selectedPackage;
+    let selectedPackage = this.props.selectedPackage.id;
     
     if(this.props.packages && this.props.packages.length > 0) {
   
@@ -102,7 +102,7 @@ export default class Home extends Component {
                     <input className="input"
                            type="number"
                            placeholder="Enter Amount"
-                           onChange={this.onCustomPriceChange} disabled={isSelected ? false : true}/>
+                           onChange={this.onCustomPriceChange} disabled={!isSelected}/>
                   </div>
                   <div className="select">
                     {selectStateIcon}
