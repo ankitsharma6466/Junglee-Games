@@ -742,13 +742,30 @@ body {
     border-radius: 10px;
     border: 1px solid #d3d3d3; }
     .card .content .actions {
-      margin-top: 1.5rem; }
+      margin-top: 4.5rem;
+      text-align: right; }
 
 .input {
   padding: 0.75rem 0.5rem;
   width: 100%;
   box-sizing: border-box;
-  font-size: 1.4rem;
-  color: #424242; }
+  font-size: 1.6rem;
+  color: #424242;
+  background: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px; }
+
+.button {
+  padding: 0.75rem 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: #008600;
+  display: inline-block;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: .2s all linear; }
+  .button:hover {
+    background: #007000; }
 
 /*# sourceMappingURL=app.css.map */

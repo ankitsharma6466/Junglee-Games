@@ -28,7 +28,7 @@ body {
 
 .card {
   background: $background-secondary;
-  border: 1px solid #d3d3d3;
+  border: 1px solid $border;
   padding: $gutter-width;
   border-radius: 10px;
 
@@ -54,10 +54,11 @@ body {
     background: $background-primary;
     padding: $gutter-width;
     border-radius: 10px;
-    border: 1px solid #d3d3d3;
+    border: 1px solid $border;
 
     .actions {
-      margin-top: $gutter-width;
+      margin-top: $gutter-width*3;
+      text-align: right;
     }
   }
 }
@@ -66,6 +67,25 @@ body {
   padding: $gutter-width/2 $gutter-width/3;
   width: 100%;
   box-sizing: border-box;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: $text-primary;
+  background: #ffffff;
+  border: 1px solid $border;
+  border-radius: 3px;
+}
+
+.button {
+  padding: $gutter-width/2 $gutter-width*2;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  background: #008600;
+  display: inline-block;
+  border-radius: 5px;
+  color: $text-primary-dark-bg;
+  cursor: pointer;
+  transition: .2s all linear;
+
+  &:hover {
+    background: #007000;
+  }
 }

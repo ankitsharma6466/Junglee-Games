@@ -117,8 +117,11 @@ export default class Home extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="action">
-                
+                <div className="actions">
+                  <div className="promo">
+                    <input className="input" type="text" placeholder="Promo Code (Optional)"/>
+                  </div>
+                  <div className="button">Continue</div>
                 </div>
               </div>
             </div>
