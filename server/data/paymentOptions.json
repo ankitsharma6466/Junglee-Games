@@ -1,0 +1,105 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "title": "Credit Card",
+      "subTitle": "",
+      "enabled": true,
+      "type": "CARD",
+      "allowed_types": ["American Express", "Master Card", "Visa"]
+    },
+    {
+      "id": 2,
+      "title": "Debit Card",
+      "subTitle": "",
+      "enabled": true,
+      "type": "CARD",
+      "allowed_types": ["American Express", "Master Card", "Visa"]
+    },
+    {
+      "id": 3,
+      "title": "Net Banking",
+      "subTitle": "",
+      "enabled": true,
+      "type": "NET_BANKING",
+      "options": {
+        "main": [
+          {
+            "id": 101,
+            "title": "State Bank of India",
+            "icon": ""
+          },
+          {
+            "id": 102,
+            "title": "Axis Bank",
+            "icon": ""
+          },
+          {
+            "id": 103,
+            "title": "ICICI Bank",
+            "icon": ""
+          }
+        ],
+        "other": [
+          {
+            "id": 104,
+            "title": "HDFC Bank",
+            "icon": ""
+          },
+          {
+            "id": 105,
+            "title": "HSBC Bank",
+            "icon": ""
+          },
+          {
+            "id": 106,
+            "title": "IDBI Bank",
+            "icon": ""
+          },
+          {
+            "id": 107,
+            "title": "Citibank",
+            "icon": ""
+          },
+          {
+            "id": 108,
+            "title": "Kotak Mahindra Bank",
+            "icon": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "Wallets",
+      "subTitle": "(Paytm, Mobikwik, PayU)",
+      "enabled": true,
+      "type": "WALLET",
+      "options": [
+        {
+          "id": 201,
+          "title": "Paytm",
+          "icon": ""
+        },
+        {
+          "id": 202,
+          "title": "Mobikwik",
+          "icon": ""
+        },
+        {
+          "id": 203,
+          "title": "PayU",
+          "icon": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Cash Cards",
+      "subTitle": "",
+      "enabled": false,
+      "type": "CASH_CARDS",
+      "options": []
+    }
+  ]
+}

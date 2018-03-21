@@ -1,0 +1,39 @@
+{
+  "packages": [
+    {
+      "id": 1,
+      "type": "FIXED",
+      "name": "First",
+      "amount": 2000,
+      "bonus": 1500
+    },
+    {
+      "id": 2,
+      "type": "FIXED",
+      "name": "Second",
+      "amount": 1000,
+      "bonus": 800
+    },
+    {
+      "id": 3,
+      "type": "FIXED",
+      "name": "Third",
+      "amount": 500,
+      "bonus": 200
+    },
+    {
+      "id": 4,
+      "type": "FIXED",
+      "name": "Last",
+      "amount": 100,
+      "bonus": 0
+    },
+    {
+      "id": 99,
+      "type": "USER_DEFINED",
+      "name": "Custom",
+      "amount": 0,
+      "bonus": 0
+    }
+  ]
+}
