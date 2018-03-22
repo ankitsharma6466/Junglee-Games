@@ -15,8 +15,8 @@ total 3 screens
 Setup
 -> npm install
 
-start dev server
-- npm run start
+to start dev server
+-> npm run start
 
 to make deployable build
 -> npm run build
