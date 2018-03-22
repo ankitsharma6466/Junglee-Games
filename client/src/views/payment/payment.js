@@ -26,6 +26,12 @@ export default class Home extends Component {
     this.props.dispatch(getPaymentOptions());
   }
   
+  componentWillUpdate() {
+    if(this.props.paymntSuccessful) {
+      this.props.history.replace("/success");
+    }
+  }
+  
   onOptionSelected(option) {
     this.props.dispatch(selectOption(option));
   }
@@ -141,7 +147,10 @@ export default class Home extends Component {
           <div className="payment-card">
             <div className="accepted">Accepts: {allowedTypes}</div>
             <label>Card Number</label>
-            <input className="input" type="number" placeholder="Enter Card Number" onChange={this.onCardNumberChange}/>
+            <input className="input"
+                   type="number"
+                   placeholder="Enter Card Number"
+                   onChange={this.onCardNumberChange}/>
             <div className="row">
               <div className="col m8">
                 <label>Expiry</label>

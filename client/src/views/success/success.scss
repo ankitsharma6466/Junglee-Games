@@ -1,0 +1,19 @@
+@import "../../common/styles/variables";
+
+.success {
+  .content {
+    min-height: 300px;
+    text-align: center;
+
+
+    .text {
+      font-size: 3rem;
+      color: #007000;
+      margin-top: $gutter-width*2;
+    }
+
+    .button {
+      margin-top: $gutter-width*2;
+    }
+  }
+}
