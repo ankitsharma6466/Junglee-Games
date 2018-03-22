@@ -17,6 +17,8 @@
       font-size: 1.8rem;
       cursor: pointer;
       transition: .2s all linear; }
+      .payment .options .list .option:first-child {
+        border-top-left-radius: 10px; }
       .payment .options .list .option.active {
         background: #6c1203;
         color: #ffffff; }
@@ -48,15 +50,18 @@
       margin: 3rem 0 1.5rem; }
     .payment .options .details .net-banking .option {
       padding: 0.75rem;
-      display: inline-block;
       border: 1px solid #d3d3d3;
       border-radius: 5px;
-      margin-right: 1.5rem; }
+      display: flex;
+      align-items: center;
+      min-height: 32px;
+      cursor: pointer; }
       .payment .options .details .net-banking .option .image {
-        height: 40px;
         width: 120px;
-        background: #ccc;
-        display: inline-block; }
+        margin-right: 0.75rem;
+        background: #fff; }
+        .payment .options .details .net-banking .option .image img {
+          width: 100%; }
     .payment .options .details .net-banking select {
       height: 40px;
       width: 300px;

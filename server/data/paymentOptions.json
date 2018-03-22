@@ -27,17 +27,17 @@
           {
             "id": 101,
             "title": "State Bank of India",
-            "icon": ""
+            "icon": "http://infoserwiz.com/wp-content/uploads/2015/11/235003-500x123.png"
           },
           {
             "id": 102,
             "title": "Axis Bank",
-            "icon": ""
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Axis_Bank_logo.svg/300px-Axis_Bank_logo.svg.png"
           },
           {
             "id": 103,
             "title": "ICICI Bank",
-            "icon": ""
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/ICICI_Bank_Logo.svg/320px-ICICI_Bank_Logo.svg.png"
           }
         ],
         "other": [
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Cash Cards",
       "subTitle": "",
       "enabled": false,

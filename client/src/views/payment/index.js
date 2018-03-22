@@ -6,6 +6,11 @@ function mapStateToProps(state) {
   return {
     selectedPackage: state.home.selectedPackage,
     customPrice: state.home.customPrice,
+    paymentOptions: state.payment.paymentOptions,
+    selectedOption: state.payment.selectedOption,
+    selectedNetBankingId: state.payment.selectedNetBankingId,
+    selectedNetBankingType: state.payment.selectedNetBankingType,
+    selectedCardDetails: state.payment.selectedCardDetails
   }
 }
 

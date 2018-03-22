@@ -27,6 +27,10 @@
         cursor: pointer;
         transition: .2s all linear;
 
+        &:first-child {
+          border-top-left-radius: 10px;
+        }
+
         &.active {
           background: $primary;
           color: $text-primary-dark-bg;
@@ -79,16 +83,21 @@
 
         .option {
           padding: $gutter-width/2;
-          display: inline-block;
           border: 1px solid $border;
           border-radius: 5px;
-          margin-right: $gutter-width;
+          display: flex;
+          align-items: center;
+          min-height: 32px;
+          cursor: pointer;
 
           .image {
-            height: 40px;
             width: 120px;
-            background: #ccc;
-            display: inline-block;
+            margin-right: $gutter-width/2;
+            background: #fff;
+
+            img {
+              width: 100%;
+            }
           }
         }
 
