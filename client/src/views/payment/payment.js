@@ -4,6 +4,7 @@ import {getPaymentOptions, selectOption, setCardDetails, setNetbankingDetails} f
 import IconSelected from 'react-icons/lib/md/check-circle';
 import IconUnselected from 'react-icons/lib/md/panorama-fish-eye';
 import IconCard from 'react-icons/lib/md/credit-card';
+import CommonUtils from '../../utils/commonUtils';
 
 export default class Home extends Component {
   
@@ -12,6 +13,13 @@ export default class Home extends Component {
     this.onNetBankingMainChange = this.onNetBankingMainChange.bind(this);
     this.onNetBankingOtherChange = this.onNetBankingOtherChange.bind(this);
     this.onOptionSelected = this.onOptionSelected.bind(this);
+    
+    this.onCardNumberChange = this.onCardNumberChange.bind(this);
+    this.onCardMonthChange = this.onCardMonthChange.bind(this);
+    this.onCardYearChange = this.onCardYearChange.bind(this);
+    this.onCardCvvChange = this.onCardCvvChange.bind(this);
+    this.onCardNameChange = this.onCardNameChange.bind(this);
+    this.onPayNowClick = this.onPayNowClick.bind(this);
   }
   
   componentDidMount() {
@@ -34,6 +42,69 @@ export default class Home extends Component {
       optionId: e.target.value,
       type: "other"
     }));
+  }
+  
+  onCardNumberChange(e) {
+    this.cardNumber = e.target.value;
+  }
+  
+  onCardMonthChange(e) {
+    this.cardMonth = e.target.value;
+  }
+  
+  onCardYearChange(e) {
+    this.cardYear = e.target.value;
+  }
+  
+  onCardCvvChange(e) {
+    this.cardCvv = e.target.value;
+  }
+  
+  onCardNameChange(e) {
+    this.cardName = e.target.value;
+  }
+  
+  validateCardDetails() {
+    let valid = true;
+  
+    if(!this.cardNumber || !(this.cardNumber.length === 16 || this.cardNumber.length === 20)) valid = false;
+  
+    if(!this.cardMonth || this.cardMonth < 1 || this.cardMonth > 12) valid = false;
+  
+    if(!this.cardYear || this.cardYear.length !== 2 || this.cardYear < 0 || this.cardYear > 30) valid = false;
+  
+    if(!this.cardCvv || this.cardCvv.length < 3 || this.cardCvv.length > 4) valid = false;
+  
+    if(!this.cardName) valid = false;
+    
+    return valid;
+  }
+  
+  onPayNowClick() {
+    
+    //get selected Option
+    console.log(this.props.selectedOption);
+  
+    if(this.props.selectedOption.type === "NET_BANKING") {
+      //check for net banking details
+      
+      if(this.props.selectedNetBankingId && this.props.selectedNetBankingId > 0){
+      
+      } else {
+        //show error
+        alert("Please select a bank to continue");
+      }
+    }
+    
+    if(this.props.selectedOption.type === "CARD") {
+      
+      if(this.validateCardDetails()) {
+      
+      } else {
+        alert("Invalid card details!! Please check..")
+      }
+      
+    }
   }
   
   renderOptionsList() {
@@ -70,31 +141,31 @@ export default class Home extends Component {
           <div className="payment-card">
             <div className="accepted">Accepts: {allowedTypes}</div>
             <label>Card Number</label>
-            <input className="input" type="number" maxLength={20} placeholder="Enter Card Number"/>
+            <input className="input" type="number" placeholder="Enter Card Number" onChange={this.onCardNumberChange}/>
             <div className="row">
               <div className="col m8">
                 <label>Expiry</label>
                 <div className="row">
                   <div className="col m7">
-                    <input className="input" type="number" maxLength={20} placeholder="Mon"/>
+                    <input className="input" type="number" placeholder="MM" onChange={this.onCardMonthChange}/>
                   </div>
                   <div className="col m7">
-                    <input className="input" type="number" maxLength={20} placeholder="Year"/>
+                    <input className="input" type="number" placeholder="YY" onChange={this.onCardYearChange}/>
                   </div>
                 </div>
               </div>
               <div className="col m2"/>
               <div className="col m5">
                 <label>CVV</label>
-                <input className="input" type="number" maxLength={20} placeholder="cvv"/>
+                <input className="input" type="number" placeholder="CVV" onChange={this.onCardCvvChange}/>
               </div>
             </div>
     
             <label>Card Holders Name</label>
-            <input className="input" type="text" maxLength={20} placeholder="Name"/>
+            <input className="input" type="text" placeholder="Name" onChange={this.onCardNameChange}/>
   
             <div className="action">
-              <div className="button">Pay Now</div>
+              <div className="button" onClick={this.onPayNowClick}>Pay Now</div>
             </div>
           </div>
         );
@@ -115,8 +186,8 @@ export default class Home extends Component {
           }
           
           return (
-            <div className="col m4">
-              <div key={index} className="option" onClick={() => this.onNetBankingMainChange(item)}>
+            <div key={index} className="col m4">
+              <div className="option" onClick={() => this.onNetBankingMainChange(item)}>
                 <div className="image">
                   <img src={item.icon}/>
                 </div>
@@ -146,12 +217,18 @@ export default class Home extends Component {
             </select>
   
             <div className="action">
-              <div className="button">Pay Now</div>
+              <div className="button" onClick={this.onPayNowClick}>Pay Now</div>
             </div>
           </div>
         );
       } else {
         //show nothing
+        
+        render = (
+          <div className="option-disabled">
+            <div className="msg">{option.title} has temporarily been disabled. Please try again later or check out with other payment options.</div>
+          </div>
+        );
       }
       
       return render;
@@ -159,7 +236,15 @@ export default class Home extends Component {
   }
   
   render() {
-  
+    
+    let amount = 1000;
+    
+    if(this.props.selectedPackage.type === "USER_DEFINED") {
+      amount = this.props.customPrice
+    } else {
+      amount = this.props.selectedPackage.amount
+    }
+    
     return (
       <div className="payment">
         <div className="container">
@@ -182,6 +267,8 @@ export default class Home extends Component {
                   </div>
                 </div>
               </div>
+              
+              <div className="amount">Amount: <span className="value">{CommonUtils.getFormattedAmount(amount)}</span></div>
               
               <div className="content">
                 <div className="options">
