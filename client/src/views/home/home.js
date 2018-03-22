@@ -6,6 +6,9 @@ import IconSelected from 'react-icons/lib/md/check-circle';
 import IconUnselected from 'react-icons/lib/md/panorama-fish-eye';
 import CommonUtils from '../../utils/commonUtils';
 
+/**
+ * Lists all the package options available
+ */
 export default class Home extends Component {
   
   constructor(props) {

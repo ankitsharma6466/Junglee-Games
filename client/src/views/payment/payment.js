@@ -6,6 +6,9 @@ import IconUnselected from 'react-icons/lib/md/panorama-fish-eye';
 import IconCard from 'react-icons/lib/md/credit-card';
 import CommonUtils from '../../utils/commonUtils';
 
+/**
+ * Lists all the payment options available
+ */
 export default class Home extends Component {
   
   constructor(props) {
