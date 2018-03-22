@@ -47,7 +47,7 @@ export default class Home extends Component {
   
   renderPackages() {
     
-    let selectedPackage = this.props.selectedPackage.id;
+    let selectedPackage = this.props.selectedPackage ? this.props.selectedPackage.id : -1;
     
     if(this.props.packages && this.props.packages.length > 0) {
   

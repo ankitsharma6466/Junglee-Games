@@ -27,9 +27,9 @@ export const setCustomPrice = (amount) => {
   }
 };
 
-export const selectPackage = (id) => {
+export const selectPackage = (pack) => {
   return {
     type: "SELECT_PACKAGE",
-    payload: id
+    payload: pack
   }
 };

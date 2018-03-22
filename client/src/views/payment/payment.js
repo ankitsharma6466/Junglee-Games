@@ -95,7 +95,7 @@ export default class Home extends Component {
       //check for net banking details
       
       if(this.props.selectedNetBankingId && this.props.selectedNetBankingId > 0){
-      
+        this.props.history.replace("/success");
       } else {
         //show error
         alert("Please select a bank to continue");
@@ -105,11 +105,10 @@ export default class Home extends Component {
     if(this.props.selectedOption.type === "CARD") {
       
       if(this.validateCardDetails()) {
-      
+        this.props.history.replace("/success");
       } else {
         alert("Invalid card details!! Please check..")
       }
-      
     }
   }
   

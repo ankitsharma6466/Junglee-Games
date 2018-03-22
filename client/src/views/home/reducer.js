@@ -3,7 +3,7 @@ export default (state = {
   loader: false,
   errorMessage: "",
   promoCode: "",
-  selectedPackage: -1
+  selectedPackage: null,
 }, action) => {
   switch (action.type) {
     case "GET_PACKAGES_PENDING": {
@@ -19,10 +19,10 @@ export default (state = {
       return {...state, promoCode: action.payload}
     }
     case "SET_CUSTOM_PRICE": {
-      return {...state, customPrice: action.payload}
+      return {...state, customPrice: action.payload, amount: action.payload}
     }
     case "SELECT_PACKAGE": {
-      return {...state, selectedPackage: action.payload}
+      return {...state, selectedPackage: action.payload, amount: action.payload.amount}
     }
     default: {
       return state;

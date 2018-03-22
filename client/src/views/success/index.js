@@ -4,7 +4,7 @@ import Success from './success'
 
 function mapStateToProps(state) {
   return {
-    loader: state.success.loader
+    amount: state.home.amount
   }
 }
 

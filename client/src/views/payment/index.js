@@ -6,6 +6,7 @@ function mapStateToProps(state) {
   return {
     selectedPackage: state.home.selectedPackage,
     customPrice: state.home.customPrice,
+    amount: state.home.amount,
     loader: state.payment.loader,
     errorMessage: state.payment.errorMessage,
     paymentOptions: state.payment.paymentOptions,

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './success.css'
-import { getPackages, setCustomPrice, setPromoCode, selectPackage } from './actions'
 import IconSelected from 'react-icons/lib/md/check-circle';
+import CommonUtils from '../../utils/commonUtils';
 
 export default class Home extends Component {
   
   constructor(props) {
     super(props);
+    this.onAddMoreClick = this.onAddMoreClick.bind(this);
+  }
+  
+  onAddMoreClick() {
+    this.props.history.replace("/");
   }
   
   componentDidMount() {
@@ -35,9 +40,9 @@ export default class Home extends Component {
               </div>
               <div className="content">
               
-                <div className="text">Your payment of amount 257 was successful</div>
+                <div className="text">Your payment of amount {CommonUtils.getFormattedAmount(this.props.amount)} was successful</div>
                 
-                <div className="button">Add More Cash</div>
+                <div className="button" onClick={this.onAddMoreClick}>Add More Cash</div>
               
               </div>
             </div>
