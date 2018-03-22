@@ -33,7 +33,6 @@ export default class Home extends Component {
   }
   
   onPackageSelected(item) {
-    console.log(item);
     this.props.dispatch(selectPackage(item));
   }
   
