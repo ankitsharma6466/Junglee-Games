@@ -4,7 +4,8 @@ import Payment from './payment'
 
 function mapStateToProps(state) {
   return {
-    test: state.payment.test
+    selectedPackage: state.home.selectedPackage,
+    customPrice: state.home.customPrice,
   }
 }
 

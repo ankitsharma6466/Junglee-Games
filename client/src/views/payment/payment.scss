@@ -1,1 +1,106 @@
 @import "../../common/styles/variables";
+
+.payment {
+  .card{
+    .content {
+      padding: 0;
+    }
+  }
+
+  .options {
+    min-height: 400px;
+    display: flex;
+    align-items: stretch;
+
+    .list {
+      background: #ececec;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-right: 1px solid $border;
+      width: 250px;
+
+      .option {
+        padding: $gutter-width*1.5 $gutter-width;
+        text-align: center;
+        border-bottom: 1px solid $border;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: .2s all linear;
+
+        &.active {
+          background: $primary;
+          color: $text-primary-dark-bg;
+
+          &:hover {
+            background: $primary;
+          }
+        }
+
+        &:hover {
+          background: #dfdfdf;
+        }
+      }
+    }
+
+    .details {
+      display: inline-block;
+      flex-grow: 4;
+      padding: $gutter-width*2;
+
+      .action {
+        margin: $gutter-width*2 0 $gutter-width;
+      }
+
+      .payment-card {
+        width: 350px;
+
+        label {
+          margin-top: $gutter-width;
+          font-size: 1.4rem;
+          text-transform: capitalize;
+          color: $text-secondary;
+          display: block;
+        }
+
+        .input {
+          margin-top: $gutter-width/2;
+        }
+      }
+
+      .net-banking {
+
+        label {
+          color: $text-secondary;
+          text-transform: uppercase;
+          font-size: 1.4rem;
+          display: block;
+          margin: $gutter-width*2 0 $gutter-width;
+        }
+
+        .option {
+          padding: $gutter-width/2;
+          display: inline-block;
+          border: 1px solid $border;
+          border-radius: 5px;
+          margin-right: $gutter-width;
+
+          .image {
+            height: 40px;
+            width: 120px;
+            background: #ccc;
+            display: inline-block;
+          }
+        }
+
+        select {
+          height: 40px;
+          width: 300px;
+          background: #fff;
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+
+
+}

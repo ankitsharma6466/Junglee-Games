@@ -25,6 +25,25 @@ app.use(Sessions({
   },
 }));
 
+/**
+ * Middelware to intercept requests and allow headers
+ * basically for enabling CORS
+ *
+ * */
+app.use(function (req, res, next) {
+  
+  //request sources
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  
+  // Request methods
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  
+  // Request headers
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  
+  next();
+});
+
 // bind routes for /api/*
 Apis(app);
 

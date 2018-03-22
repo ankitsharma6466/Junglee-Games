@@ -21,7 +21,7 @@ export default class Home extends Component {
   }
   
   onContinueClick() {
-    if(this.props.selectedPackage) {
+    if(!this.props.selectedPackage) {
       alert("Please select a package");
     } else if(this.props.selectedPackage.type === "USER_DEFINED" && (!this.props.customPrice || this.props.customPrice <= 0)){
       alert("Amount Required");
