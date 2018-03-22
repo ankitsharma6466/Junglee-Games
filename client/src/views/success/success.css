@@ -1,0 +1,11 @@
+.success .content {
+  min-height: 300px;
+  text-align: center; }
+  .success .content .text {
+    font-size: 3rem;
+    color: #007000;
+    margin-top: 3rem; }
+  .success .content .button {
+    margin-top: 3rem; }
+
+/*# sourceMappingURL=success.css.map */
