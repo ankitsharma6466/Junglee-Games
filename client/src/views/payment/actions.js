@@ -13,6 +13,12 @@ export const getPaymentOptions = () => {
   }
 };
 
+export const resetState = () => {
+  return {
+    type: "RESET_STATE"
+  }
+};
+
 export const selectOption = (option) => {
   return {
     type: "SET_SELECTED_OPTION",
@@ -27,9 +33,21 @@ export const setNetbankingDetails = (option) => {
   }
 };
 
-export const setCardDetails = (details) => {
+export const makePayment = (details) => {
+  
+  return dispatch => {
+    
+    dispatch({type: "MAKE_PAYMENT_PENDING"});
+    
+    Axios.post("http://localhost:8080/api/makePayment", details).then(response => {
+      dispatch({type: "MAKE_PAYMENT_SUCCESS", payload: response.data});
+    }).catch(error => {
+      dispatch({type: "MAKE_PAYMENT_FAILED", payload: error.message});
+    })
+  };
+  
   return {
-    type: "SET_CARD_DETAILS",
+    type: "MAKE_PAYMENT_PENDING",
     payload: details
   }
 };

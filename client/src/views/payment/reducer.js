@@ -3,7 +3,8 @@ import {TEST} from "./actions";
 export default (state = {
   loader: false,
   errorMessage: "",
-  selectedNetBankingId: -1
+  selectedNetBankingId: -1,
+  paymentSuccessful: false
 }, action) => {
   switch (action.type) {
     case "GET_PAYMENT_OPTIONS_PENDING": {
@@ -21,8 +22,17 @@ export default (state = {
     case "SET_NET_BANKING_DETAILS": {
       return {...state, selectedNetBankingId: action.payload.optionId, selectedNetBankingType: action.payload.type}
     }
-    case "SET_CARD_DETAILS": {
-      return {...state, selectedCardDetails: action.payload}
+    case "MAKE_PAYMENT_PENDING": {
+      return {...state, loader: true}
+    }
+    case "MAKE_PAYMENT_SUCCESS": {
+      return {...state, loader: false, paymentSuccessful: true}
+    }
+    case "MAKE_PAYMENT_FAILED": {
+      return {...state, loader: false, paymentSuccessful: false}
+    }
+    case "RESET_STATE": {
+      return {...state, loader: false, paymentSuccessful: false, selectedNetBankingId: -1, selectedNetBankingType: null}
     }
     default: {
       return state;

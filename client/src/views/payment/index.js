@@ -13,7 +13,8 @@ function mapStateToProps(state) {
     selectedOption: state.payment.selectedOption,
     selectedNetBankingId: state.payment.selectedNetBankingId,
     selectedNetBankingType: state.payment.selectedNetBankingType,
-    selectedCardDetails: state.payment.selectedCardDetails
+    selectedCardDetails: state.payment.selectedCardDetails,
+    paymentSuccessful: state.payment.paymentSuccessful
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './payment.css'
-import {getPaymentOptions, selectOption, setCardDetails, setNetbankingDetails} from './actions'
+import {getPaymentOptions, selectOption, setNetbankingDetails, makePayment, resetState} from './actions'
 import IconSelected from 'react-icons/lib/md/check-circle';
 import IconUnselected from 'react-icons/lib/md/panorama-fish-eye';
 import IconCard from 'react-icons/lib/md/credit-card';
@@ -24,12 +24,6 @@ export default class Home extends Component {
   
   componentDidMount() {
     this.props.dispatch(getPaymentOptions());
-  }
-  
-  componentWillUpdate() {
-    if(this.props.paymntSuccessful) {
-      this.props.history.replace("/success");
-    }
   }
   
   onOptionSelected(option) {
@@ -95,7 +89,14 @@ export default class Home extends Component {
       //check for net banking details
       
       if(this.props.selectedNetBankingId && this.props.selectedNetBankingId > 0){
-        this.props.history.replace("/success");
+        
+        let data = {
+          packageId: this.props.selectedPackage.id,
+          paymentOptionId: this.props.selectedNetBankingId ,
+          amount: this.props.amount
+        };
+        this.props.dispatch(makePayment(data));
+        
       } else {
         //show error
         alert("Please select a bank to continue");
@@ -105,7 +106,14 @@ export default class Home extends Component {
     if(this.props.selectedOption.type === "CARD") {
       
       if(this.validateCardDetails()) {
-        this.props.history.replace("/success");
+        
+        let data = {
+          packageId: this.props.selectedPackage.id,
+          paymentOptionId: this.props.selectedNetBankingId ,
+          amount: this.props.amount
+        };
+        this.props.dispatch(makePayment(data));
+        
       } else {
         alert("Invalid card details!! Please check..")
       }
@@ -245,13 +253,21 @@ export default class Home extends Component {
   
   render() {
     
-    let amount = 1000;
-    
-    if(this.props.selectedPackage.type === "USER_DEFINED") {
-      amount = this.props.customPrice
-    } else {
-      amount = this.props.selectedPackage.amount
+    let amount;
+  
+    if(this.props.selectedPackage){
+      if(this.props.selectedPackage.type === "USER_DEFINED") {
+        amount = this.props.customPrice
+      } else {
+        amount = this.props.selectedPackage.amount
+      }
     }
+    
+    if(this.props.paymentSuccessful) {
+      this.props.dispatch(resetState());
+      this.props.history.replace("/success");
+    }
+    
     
     return (
       <div className="payment">
